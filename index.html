@@ -15,8 +15,13 @@
     const search = document.querySelector('#search')
 
     search.addEventListener('click', () => {
-      console.log('click')
-    })
+      const options = {method: 'GET', headers: {accept: 'application/json'}};
+
+      fetch('https://api.content.tripadvisor.com/api/v1/location/search?key=7C2EAC483A404835A65954DF1325A9DF&searchQuery=germany&language=en', options)
+        .then(response => response.json())
+        .then(response => console.log(response))
+        .catch(err => console.error(err));
+      })
   </script>
 </body>
 </html>
